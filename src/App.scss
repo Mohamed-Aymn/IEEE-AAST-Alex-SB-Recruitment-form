@@ -1,0 +1,41 @@
+$base-color: #111317;
+$main-text-color: #ffffff;
+$secondary-text: #a3a3a3;
+
+//----------------------------------------- Navbar
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: $base-color;
+    color: white;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 3em;
+    background-color: #000000;
+    color: white;
+    .logo {
+        height: 2rem;
+    }
+    .navText {
+        color: $secondary-text;
+    }
+}
+
+//----------------------------------------- Footer
+footer {
+    text-align: center;
+    color: $secondary-text;
+    margin-top: auto;
+    padding: 2em 0;
+}
