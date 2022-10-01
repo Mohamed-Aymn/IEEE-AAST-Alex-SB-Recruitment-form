@@ -10,7 +10,7 @@ import LimitedCheckBox from "../Form_input_fileds/LimitedCheckBox";
 const FormDataContext = createContext({});
 
 export const FormDataProvider = ({ children }) => {
-    let [step, setStep] = useState(3);
+    let [step, setStep] = useState(1);
     let [data, setData] = useState({
         // first step
         fullName: "",
