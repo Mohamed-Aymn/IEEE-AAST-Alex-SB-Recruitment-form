@@ -26,7 +26,10 @@ should i talk about my code and why i used it? yes I will type it in the second 
 
 # IEEE AAST Alex SB - Recruitment Form
 
-<img src="src/assets/IEEE-Logo.png">
+<p align="center">
+<img src="src/assets/IEEE-Logo--blue.png" height="100" >
+
+</p>
 
 ## Table of Contents
 
