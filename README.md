@@ -94,7 +94,7 @@ The main aim is to type dynamic code to avoid code repetition due to existence o
 
 <ol>
     <li>React Hook Form</li>
-    <li>SaSS</li>
+    <li>sass</li>
     <li>React Icons</li>
 </ol>
 
