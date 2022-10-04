@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import FormDataContext from "../context/formContext";
 import {
     stepOnePartOne,
@@ -9,7 +9,42 @@ import MainStepper from "../components/MainStepper";
 import { useForm } from "react-hook-form";
 
 function FormStep1() {
-    let { data, formItems, step } = useContext(FormDataContext);
+    let {
+        data,
+        formItems,
+        step,
+        changeConditionalFieldsBoleanValue,
+        changeHiddenFieldsData,
+        conditionalFields,
+    } = useContext(FormDataContext);
+
+    useEffect(() => {
+        setTimeout(() => {
+            changeHiddenFieldsData("primaryCommittee");
+        }, 0);
+        setTimeout(() => {
+            changeHiddenFieldsData("secondaryCommitee1");
+        }, 1);
+        setTimeout(() => {
+            changeHiddenFieldsData("secondaryCommittee2");
+        }, 2);
+    }, [
+        conditionalFields.primaryCommittee,
+        conditionalFields.secondaryCommittee2,
+        conditionalFields.secondaryCommitee1,
+    ]);
+
+    useEffect(() => {
+        setTimeout(() => {
+            changeConditionalFieldsBoleanValue("primaryCommittee");
+        }, 0);
+        setTimeout(() => {
+            changeConditionalFieldsBoleanValue("secondaryCommitee1");
+        }, 1);
+        setTimeout(() => {
+            changeConditionalFieldsBoleanValue("secondaryCommittee2");
+        }, 2);
+    }, [data]);
 
     let {
         register,

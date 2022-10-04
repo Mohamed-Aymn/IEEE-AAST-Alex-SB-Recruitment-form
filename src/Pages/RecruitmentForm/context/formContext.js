@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useCallback, useEffect } from "react";
 import Controller from "../components/Controller";
 import InputField from "../Form_input_fileds/InputField";
 import DropDown from "../Form_input_fileds/DropDown";
@@ -6,11 +6,13 @@ import TextArea from "../Form_input_fileds/TextArea";
 import RadioButton from "../Form_input_fileds/RadioButton";
 import SpecialRange from "../Form_input_fileds/SpecialRange";
 import LimitedCheckBox from "../Form_input_fileds/LimitedCheckBox";
+import { flushSync } from "react-dom";
+// import { useEffect } from "react/cjs/react.production.min";
 
 const FormDataContext = createContext({});
 
 export const FormDataProvider = ({ children }) => {
-    let [step, setStep] = useState(1);
+    let [step, setStep] = useState(6);
     let [data, setData] = useState({
         // first step
         fullName: "",
@@ -56,21 +58,75 @@ export const FormDataProvider = ({ children }) => {
     let [stepSwitchErrorPopup, setStepSwitchErrorPopup] = useState(false);
     let [submitPopup, setSubmitPopup] = useState(false);
 
-    let conditionalFields = {
-        eventNames: data.didAttendEvents === "Yes",
-        trial: false,
-        primaryCommittee:
-            data.faculty == "Faculty Of Computer and Information Technology" ||
-            data.faculty == "Faculty Of Engineering",
-        secondaryCommitee1:
-            data.faculty == "Faculty Of Computer and Information Technology" ||
-            data.faculty == "Faculty Of Engineering",
-        secondaryCommittee2:
-            data.faculty !== "Faculty Of Computer and Information Technology" &&
-            data.faculty !== "Faculty Of Engineering",
-        volunteersName: data.howDidYouKnowAboutRecruitment == "Volunteer",
-        friendName: data.howDidYouKnowAboutRecruitment == "Friend",
-        other: data.howDidYouKnowAboutRecruitment == "Other",
+    let [conditionalFields, setConditionalFields] = useState({
+        eventNames: false,
+        primaryCommittee: false,
+        secondaryCommitee1: false,
+        secondaryCommittee2: false,
+        volunteersName: false,
+        friendName: false,
+        other: false,
+    });
+
+    // all is fine but here there is bad setState that do function's logic on the last element only
+    let changeConditionalFieldsBoleanValue = (item) => {
+        if (item == "eventNames") {
+            setConditionalFields({
+                ...conditionalFields,
+                [item]: data.didAttendEvents === "Yes",
+            });
+        } else if (item == "primaryCommittee") {
+            setConditionalFields({
+                ...conditionalFields,
+                [item]:
+                    data.faculty ==
+                        "Faculty Of Computer and Information Technology" ||
+                    data.faculty == "Faculty Of Engineering",
+            });
+        } else if (item == "secondaryCommitee1") {
+            setConditionalFields({
+                ...conditionalFields,
+                [item]:
+                    data.faculty ==
+                        "Faculty Of Computer and Information Technology" ||
+                    data.faculty == "Faculty Of Engineering",
+            });
+        } else if (item == "secondaryCommittee2") {
+            setConditionalFields({
+                ...conditionalFields,
+                [item]:
+                    data.faculty !==
+                        "Faculty Of Computer and Information Technology" &&
+                    data.faculty !== "Faculty Of Engineering",
+            });
+        } else if (item == "volunteersName") {
+            setConditionalFields({
+                ...conditionalFields,
+                [item]: data.howDidYouKnowAboutRecruitment == "Volunteer",
+            });
+        } else if (item == "friendName") {
+            setConditionalFields({
+                ...conditionalFields,
+                [item]: data.howDidYouKnowAboutRecruitment == "Friend",
+            });
+        } else if (item == "other") {
+            setConditionalFields({
+                ...conditionalFields,
+                [item]: data.howDidYouKnowAboutRecruitment == "Other",
+            });
+        }
+    };
+
+    let changeHiddenFieldsData = (item) => {
+        if ([item] in conditionalFields && !conditionalFields[item]) {
+            setData({ ...data, [item]: "none" });
+        } else if (
+            item in conditionalFields &&
+            conditionalFields[item] &&
+            data[item] == "none"
+        ) {
+            setData({ ...data, [item]: "" });
+        }
     };
 
     let formItems = (arrayOfFormItems, register, control, errors) => {
@@ -413,6 +469,7 @@ export const FormDataProvider = ({ children }) => {
             </>
         );
     };
+    // console.log("hello");
 
     return (
         <FormDataContext.Provider
@@ -423,6 +480,8 @@ export const FormDataProvider = ({ children }) => {
                 setData,
                 formItems,
                 conditionalFields,
+                changeConditionalFieldsBoleanValue,
+                changeHiddenFieldsData,
                 //
                 stepSwitchErrorPopup,
                 setStepSwitchErrorPopup,
