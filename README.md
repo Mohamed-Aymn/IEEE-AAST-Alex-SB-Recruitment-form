@@ -27,6 +27,7 @@ should i talk about my code and why i used it? yes I will type it in the second 
 # IEEE AAST Alex SB - Recruitment Form
 
 <p align="center">
+<img src="src/assets/IEEE-main-logo.png" height="100">
 <img src="src/assets/IEEE-Logo--blue.png" height="100" >
 
 </p>
@@ -43,7 +44,7 @@ should i talk about my code and why i used it? yes I will type it in the second 
 
 ## Description
 
-Recruitment form for IEEE AAST Alex SB (Institute Of Electrical and Electronics Engineers Arab Acadamey Student Branch) as it is developed to be a part of IEEE AAST Alex SB website https://ieeeaast.org to compete in annually IEEE acceleration contest in 2022.
+Recruitment form for IEEE AAST Alex SB (Institute Of Electrical and Electronics Engineers Arab Acadamey Student Branch) as it is developed to be a part of IEEE AAST Alex SB website https://ieeeaast.org to compete in an annually IEEE acceleration contest in 2022.
 
 <details>
 <summary>What is IEEE?</summary>
@@ -82,7 +83,7 @@ Find creative programs which provide value to IEEE membership and the general pu
 
 ## Main aim / Breif
 
-The main aim is to type dynamic code to avoid code repetition due to existence of multiple input fields with different types such as text area, radio buttons, special input fields etc..
+The main aim is to type dynamic code to avoid code repetition due to the existence of multiple input fields with different types such as text area, radio buttons, special input fields, etc..
 
 [Back To The Top](#table-of-contents)
 
@@ -100,9 +101,9 @@ The main aim is to type dynamic code to avoid code repetition due to existence o
 
 ### Design pattern
 
-used design pattern divides project's code into three stages
+used design pattern divides the project's code into three stages
 
-1. The first Stage is an array of object that carry data for various input fields that there state names have been already declared in form global state as in this example
+1. The first stage is an array of object that carry data for various input fields that there state names have been already declared in form global state as in this example
 
 ```js
     {
@@ -115,7 +116,7 @@ used design pattern divides project's code into three stages
     },
 ```
 
-2. The second stage is to create input filed component file that will be typed once and work for all input fields that have the same type as in this example of simple input field component
+2. The second stage is to create an input filed component file that will be typed once and work for all input fields that have the same type as in this example of a simple input field component
 
 ```js
 import React from "react";
@@ -135,7 +136,7 @@ export default InputField = (props) => {
 };
 ```
 
-3. The third and the last stage is the ui rendering function, that contains if conditions to reder the right input field using component that is specially develped for it, as in this example
+3. The third and the last stage is the UI rendering function, which contains if conditions to render the right input field using a component that is specially developed for it, as in this example
 
 ```js
 if (item.type === "text") {
@@ -171,7 +172,7 @@ if (item.type === "text") {
 
 <br>
 
-> Note: the advantage of this design pattern and the reason why it is choosed is because it perfectly matches the brief which is typing dynamic code that makes data update and maintenance pretty easy and simple. And also this design pattern is choosed to avoid code repetition as this form has multiple input fields.
+> Note: the advantage of this design pattern and the reason why it is chosen is that it perfectly matches the brief which is typing dynamic code that makes data update and maintenance pretty easy and simple. And also this design pattern is chosen to avoid code repetition as this form has multiple input fields.
 
 <br>
 

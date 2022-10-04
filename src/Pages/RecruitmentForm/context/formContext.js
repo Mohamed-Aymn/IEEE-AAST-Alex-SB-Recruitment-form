@@ -6,6 +6,7 @@ import TextArea from "../Form_input_fileds/TextArea";
 import RadioButton from "../Form_input_fileds/RadioButton";
 import SpecialRange from "../Form_input_fileds/SpecialRange";
 import LimitedCheckBox from "../Form_input_fileds/LimitedCheckBox";
+import ValidationErrorMessage from "../components/ValidationErrorMessage";
 
 const FormDataContext = createContext({});
 
@@ -105,11 +106,10 @@ export const FormDataProvider = ({ children }) => {
                                         ),
                                     }}
                                 />
-                                {errors[item.stateName] && (
-                                    <span className="validationErrorMessage">
-                                        {errors[item.stateName].message}
-                                    </span>
-                                )}
+                                <ValidationErrorMessage
+                                    errors={errors}
+                                    item={item}
+                                />
                             </div>
                         );
                     } else if (
@@ -142,11 +142,10 @@ export const FormDataProvider = ({ children }) => {
                                         ),
                                     }}
                                 />
-                                {errors[item.stateName] && (
-                                    <span className="validationErrorMessage">
-                                        {errors[item.stateName].message}
-                                    </span>
-                                )}
+                                <ValidationErrorMessage
+                                    errors={errors}
+                                    item={item}
+                                />
                             </div>
                         );
                     }
@@ -180,11 +179,10 @@ export const FormDataProvider = ({ children }) => {
                                         ),
                                     }}
                                 />
-                                {errors[item.stateName] && (
-                                    <span className="validationErrorMessage">
-                                        {errors[item.stateName].message}
-                                    </span>
-                                )}
+                                <ValidationErrorMessage
+                                    errors={errors}
+                                    item={item}
+                                />
                             </div>
                         );
                     }
@@ -217,11 +215,10 @@ export const FormDataProvider = ({ children }) => {
                                         ),
                                     }}
                                 />
-                                {errors[item.stateName] && (
-                                    <span className="validationErrorMessage">
-                                        {errors[item.stateName].message}
-                                    </span>
-                                )}
+                                <ValidationErrorMessage
+                                    errors={errors}
+                                    item={item}
+                                />
                             </div>
                         );
                     } else if (
@@ -255,11 +252,10 @@ export const FormDataProvider = ({ children }) => {
                                         ),
                                     }}
                                 />
-                                {errors[item.stateName] && (
-                                    <span className="validationErrorMessage">
-                                        {errors[item.stateName].message}
-                                    </span>
-                                )}
+                                <ValidationErrorMessage
+                                    errors={errors}
+                                    item={item}
+                                />
                             </div>
                         );
                     }
@@ -291,11 +287,10 @@ export const FormDataProvider = ({ children }) => {
                                         ),
                                     }}
                                 />
-                                {errors[item.stateName] && (
-                                    <span className="validationErrorMessage">
-                                        {errors[item.stateName].message}
-                                    </span>
-                                )}
+                                <ValidationErrorMessage
+                                    errors={errors}
+                                    item={item}
+                                />
                             </label>
                         );
                     } else if (item.type === "textArea") {
@@ -325,11 +320,10 @@ export const FormDataProvider = ({ children }) => {
                                         ),
                                     }}
                                 />
-                                {errors[item.stateName] && (
-                                    <span className="validationErrorMessage">
-                                        {errors[item.stateName].message}
-                                    </span>
-                                )}
+                                <ValidationErrorMessage
+                                    errors={errors}
+                                    item={item}
+                                />
                             </label>
                         );
                     }
@@ -361,11 +355,10 @@ export const FormDataProvider = ({ children }) => {
                                         ),
                                     }}
                                 />
-                                {errors[item.stateName] && (
-                                    <span className="validationErrorMessage">
-                                        {errors[item.stateName].message}
-                                    </span>
-                                )}
+                                <ValidationErrorMessage
+                                    errors={errors}
+                                    item={item}
+                                />
                             </div>
                         );
                     }
@@ -401,11 +394,10 @@ export const FormDataProvider = ({ children }) => {
                                         ),
                                     }}
                                 />
-                                {errors[item.stateName] && (
-                                    <span className="validationErrorMessage">
-                                        {errors[item.stateName].message}
-                                    </span>
-                                )}
+                                <ValidationErrorMessage
+                                    errors={errors}
+                                    item={item}
+                                />
                             </label>
                         );
                     }

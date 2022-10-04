@@ -14,12 +14,13 @@ function SpecialRange(props) {
                             className="specialRangeInput"
                             checked={props.data[props.name] == number}
                             value={number}
-                            onChange={(e) => {
-                                props.onChange && props.onChange(e);
+                            onChange={() => null}
+                            onClick={(e) => {
                                 props.setData({
                                     ...props.data,
                                     [props.name]: e.target.value,
                                 });
+                                props.onChange && props.onChange(e);
                             }}
                         />
                         <span className="specialRangeLabel">{number}</span>
