@@ -71,6 +71,13 @@ footer {
     @include media(">xl") {
         margin: 0 auto;
     }
+    @include media(">md") {
+        display: flex;
+        gap: 2em;
+    }
+}
+.steps {
+    flex-grow: 1;
 }
 
 .formTitle {
@@ -134,7 +141,7 @@ label.optional::after {
     background-color: #121316;
 }
 
-// ------------------------------------- stepper Styling
+// ------------------------------------- main stepper Styling
 
 .mainStepperButtonsContainer {
     display: flex;
@@ -156,6 +163,87 @@ label.optional::after {
     cursor: pointer;
     background-color: transparent;
     border: none;
+}
+
+// ------------------------------------- small special stepper Styling
+
+.smallSpecialStepperContainer {
+    overflow-x: scroll;
+    scrollbar-width: none;
+    margin: 1em 0;
+    @include media(">=md") {
+        display: none;
+    }
+}
+.smallSpecialStepperButtonsContainer {
+    display: flex;
+    gap: 0.5em;
+    min-width: 35em;
+}
+.smallSpecialStepperContainer::-webkit-scrollbar {
+    display: none;
+}
+.smallSpecialStepperButton {
+    border: 0;
+    border-radius: 2em;
+    padding: 0.3em;
+    flex: 1 1 0;
+}
+.smallSpecialStepperActiveButton {
+    background-color: $main-color;
+}
+.smallSpecialStepperInactiveButton {
+    background-color: $secondary-text;
+}
+.smallSpecialStepperDisapledButton {
+    background-color: #363636;
+}
+
+// ------------------------------------- big special stepper Styling
+.bigSpecialStepperConatiner {
+    @include media("<md") {
+        display: none;
+    }
+}
+.bigSpecialStepperButtonContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.9em;
+    margin-bottom: 0.9em;
+}
+.bigSpecialStepperIconContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 3em;
+    height: 3em;
+    border: solid 0.1em $secondary-text;
+    border-radius: 100%;
+}
+.bigSpecialStepperActiveIconContainer {
+    border: solid 0.1em $main-color;
+}
+.bigSpecialStepperDisabledIconContainer {
+    border: solid 0.1em #363636;
+}
+.bigSpecialStepperButtonLabel {
+    max-width: 10em;
+}
+.bigSpecialStepperDisapbledButtonLabel {
+    color: #363636;
+}
+.bigSpecialStepperInactiveButtonLabel {
+    color: $secondary-text;
+}
+.hello {
+    background-color: red;
+}
+
+.bigSpecialStepperActiveIcon {
+    color: $main-color;
+}
+.bigSpecialStepperDisapledIcon {
+    color: #363636;
 }
 
 // ------------------------------------- text field, text box and drop down items styling

@@ -1,13 +1,39 @@
 import React from "react";
-// import Icon
 
-function StepIcon({ Icon, title, step }) {
+function StepIcon({ Icon, title, step, id }) {
+    // console.log(id);
     return (
         <div className="bigSpecialStepperButtonContainer">
-            <div className="bigSpecialStepperIconContainer">
-                <Icon className="bigSpecialStepperIcon" />
+            <div
+                className={`bigSpecialStepperIconContainer ${
+                    id == step
+                        ? "bigSpecialStepperActiveIconContainer"
+                        : id > step
+                        ? "bigSpecialStepperDisabledIconContainer"
+                        : ""
+                }`}
+            >
+                <Icon
+                    fill={
+                        id == step
+                            ? "#3992ff"
+                            : id > step
+                            ? "#363636"
+                            : "#a3a3a3"
+                    }
+                />
             </div>
-            <span>{title}</span>
+            <span
+                className={
+                    id == step
+                        ? "bigSpecialStepperButtonLabel"
+                        : id > step
+                        ? "bigSpecialStepperDisapbledButtonLabel"
+                        : "bigSpecialStepperInactiveButtonLabel"
+                }
+            >
+                {title}
+            </span>
         </div>
     );
 }

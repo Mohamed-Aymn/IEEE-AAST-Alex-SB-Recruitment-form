@@ -7,6 +7,7 @@ import FormStep5 from "./Form_steps/FormStep5";
 import FormStep6 from "./Form_steps/FormStep6";
 import FormDataContext from "./context/formContext";
 import SwitchErrorPopup from "./popups/SwitchErrorPopup";
+import SpecialStepper from "./components/SpecialStepper";
 
 function Form() {
     let { step } = useContext(FormDataContext);
@@ -31,13 +32,14 @@ function Form() {
     };
     return (
         <>
+            <SwitchErrorPopup />
+            <div className="formTitle">
+                <h1>Recruitment</h1>
+                <div>Follow the simple 6 steps to complete the form.</div>
+            </div>
             <div className="recruitmentContainer">
-                <SwitchErrorPopup />
-                <div className="formTitle">
-                    <h1>Recruitment</h1>
-                    <div>Follow the simple 6 steps to complete the form.</div>
-                </div>
-                {steps()}
+                <SpecialStepper />
+                <div className="steps">{steps()}</div>
             </div>
         </>
     );
