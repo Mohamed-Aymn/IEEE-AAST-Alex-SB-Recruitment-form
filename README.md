@@ -160,11 +160,7 @@ if (item.type === "text") {
                     ),
                 }}
             />
-            {errors[item.stateName] && (
-                <span className="validationErrorMessage">
-                    {errors[item.stateName].message}
-                </span>
-            )}
+            <ValidationErrorMessage errors={errors} item={item} />
         </div>
     );
 }
