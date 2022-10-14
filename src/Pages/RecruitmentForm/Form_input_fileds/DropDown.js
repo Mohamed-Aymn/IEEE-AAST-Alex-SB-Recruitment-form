@@ -11,14 +11,10 @@ function DropDown(props) {
                 props.setData({ ...props.data, [props.name]: e.target.value });
             }}
         >
-            {props.item.options.map((option) => {
+            {props.item.options.map((option, i) => {
                 return (
-                    <option
-                        key={option.id}
-                        className="dropDownItems"
-                        value={option.value}
-                    >
-                        {option.value}
+                    <option key={i} className="dropDownItems" value={option}>
+                        {option}
                     </option>
                 );
             })}

@@ -1,4 +1,5 @@
-import { createContext, useState, useCallback, useEffect } from "react";
+import { createContext, useState } from "react";
+import { inputsUiRendering } from "../components/inputsUiRendering";
 import Controller from "../components/Controller";
 import InputField from "../Form_input_fileds/InputField";
 import DropDown from "../Form_input_fileds/DropDown";
@@ -67,7 +68,6 @@ export const FormDataProvider = ({ children }) => {
         other: false,
     });
 
-    // all is fine but here there is bad setState that do function's logic on the last element only
     let changeConditionalFieldsBoleanValue = (item) => {
         if (item == "eventNames") {
             setConditionalFields({
@@ -128,14 +128,14 @@ export const FormDataProvider = ({ children }) => {
         }
     };
 
-    let formItems = (arrayOfFormItems, register, control, errors) => {
+    let inputsUiRendering = (arrayOfFormItems, register, control, errors) => {
         return (
             <>
-                {arrayOfFormItems.map((item) => {
+                {arrayOfFormItems.map((item, i) => {
                     /////////////////////////////////////////////////// Text
                     if (item.type === "text") {
                         return (
-                            <div key={item.id} className="fieldContainer">
+                            <div key={i} className="fieldContainer">
                                 <div className="fieldLabel">
                                     {item.fieldLabel}
                                 </div>
@@ -171,7 +171,7 @@ export const FormDataProvider = ({ children }) => {
                         conditionalFields[item.stateName]
                     ) {
                         return (
-                            <div key={item.id} className="fieldContainer">
+                            <div key={i} className="fieldContainer">
                                 <div className="fieldLabel">
                                     {item.fieldLabel}
                                 </div>
@@ -207,7 +207,7 @@ export const FormDataProvider = ({ children }) => {
                     /////////////////////////////////////////////////// dropDown
                     else if (item.type === "dropDown") {
                         return (
-                            <div key={item.id} className="fieldContainer">
+                            <div key={i} className="fieldContainer">
                                 <label className="fieldLabel">
                                     {item.fieldLabel}
                                 </label>
@@ -243,7 +243,7 @@ export const FormDataProvider = ({ children }) => {
                     /////////////////////////////////////////////////// radioButton
                     else if (item.type === "radioButton") {
                         return (
-                            <div key={item.id} className="fieldContainer">
+                            <div key={i} className="fieldContainer">
                                 <div className="fieldLabel">
                                     {item.fieldLabel}
                                 </div>
@@ -280,7 +280,7 @@ export const FormDataProvider = ({ children }) => {
                         conditionalFields[item.stateName]
                     ) {
                         return (
-                            <div key={item.id} className="fieldContainer">
+                            <div key={i} className="fieldContainer">
                                 <div className="fieldLabel">
                                     {item.fieldLabel}
                                 </div>
@@ -316,7 +316,7 @@ export const FormDataProvider = ({ children }) => {
                     /////////////////////////////////////////////////// textArea
                     else if (item.type === "textArea") {
                         return (
-                            <label key={item.id} className={"fieldContainer"}>
+                            <label key={i} className={"fieldContainer"}>
                                 <div className={"fieldLabel"}>
                                     {item.fieldLabel}
                                 </div>
@@ -349,7 +349,7 @@ export const FormDataProvider = ({ children }) => {
                         );
                     } else if (item.type === "textArea") {
                         return (
-                            <label key={item.id} className={"fieldContainer"}>
+                            <label key={i} className={"fieldContainer"}>
                                 <div className={"fieldLabel"}>
                                     {item.fieldLabel}
                                 </div>
@@ -384,7 +384,7 @@ export const FormDataProvider = ({ children }) => {
                     /////////////////////////////////////////////////// specialRange
                     else if (item.type === "specialRange") {
                         return (
-                            <div key={item.id} className="fieldContainer">
+                            <div key={i} className="fieldContainer">
                                 <div className={"fieldLabel"}>
                                     {item.fieldLabel}
                                 </div>
@@ -422,7 +422,7 @@ export const FormDataProvider = ({ children }) => {
                         conditionalFields[item.stateName]
                     ) {
                         return (
-                            <label key={item.id} className="fieldContainer">
+                            <label key={i} className="fieldContainer">
                                 <div className="fieldLabel">
                                     Choose your 2 secondary committees.
                                 </div>
@@ -459,7 +459,6 @@ export const FormDataProvider = ({ children }) => {
             </>
         );
     };
-    // console.log("hello");
 
     return (
         <FormDataContext.Provider
@@ -468,7 +467,7 @@ export const FormDataProvider = ({ children }) => {
                 setStep,
                 data,
                 setData,
-                formItems,
+                inputsUiRendering,
                 conditionalFields,
                 changeConditionalFieldsBoleanValue,
                 changeHiddenFieldsData,

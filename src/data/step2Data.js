@@ -1,6 +1,5 @@
 export let stepTwo = [
     {
-        id: 1,
         type: "text",
         fieldLabel: "What do IEEE letters refer to?",
         stateName: "ieeeLettersAbv",
@@ -8,7 +7,6 @@ export let stepTwo = [
         patternErrMsg: "Write a valid input",
     },
     {
-        id: 2,
         type: "text",
         fieldLabel: "What do you know about IEEE?",
         stateName: "whatDoYouKnowAboutIeee",
@@ -16,7 +14,6 @@ export let stepTwo = [
         patternErrMsg: "Write a valid input",
     },
     {
-        id: 3,
         type: "text",
         fieldLabel: "Why do you want to join IEEE?",
         stateName: "whyDoYouWantToJoinIEEE",
@@ -24,17 +21,12 @@ export let stepTwo = [
         patternErrMsg: "Write a valid input",
     },
     {
-        id: 4,
         type: "radioButton",
         fieldLabel: "Did you attend any IEEE events before?",
         stateName: "didAttendEvents",
-        options: [
-            { id: 1, value: "Yes" },
-            { id: 2, value: "No" },
-        ],
+        options: ["Yes", "No"],
     },
     {
-        id: 5,
         type: "ConditionalText",
         fieldLabel:
             "Can you please provide the events' names that you attended?",

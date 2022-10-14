@@ -11,7 +11,7 @@ import { useForm } from "react-hook-form";
 function FormStep1() {
     let {
         data,
-        formItems,
+        inputsUiRendering,
         step,
         changeConditionalFieldsBoleanValue,
         changeHiddenFieldsData,
@@ -63,14 +63,24 @@ function FormStep1() {
 
             <div className="twoInputColumns">
                 <div className="column">
-                    {formItems(stepOnePartOne, register, control, errors)}
+                    {inputsUiRendering(
+                        stepOnePartOne,
+                        register,
+                        control,
+                        errors
+                    )}
                 </div>
                 <div className="column">
-                    {formItems(stepOnePartTwo, register, control, errors)}
+                    {inputsUiRendering(
+                        stepOnePartTwo,
+                        register,
+                        control,
+                        errors
+                    )}
                 </div>
             </div>
             <div className="partThreeContainer">
-                {formItems(stepOnePartThree, register, control, errors)}
+                {inputsUiRendering(stepOnePartThree, register, control, errors)}
             </div>
 
             <MainStepper handleSubmit={handleSubmit} isValid={isValid} />

@@ -34,23 +34,21 @@ function LimitedCheckBox(props) {
 
     return (
         <div className="radioSection">
-            {props.item.options.map((option) => {
+            {props.item.options.map((option, i) => {
                 return (
-                    <label key={option.id}>
+                    <label key={i}>
                         <input
                             type="checkbox"
                             name={props.name}
                             className="radioItemInput"
-                            value={option.value}
-                            checked={props.data[props.name].includes(
-                                option.value
-                            )}
+                            value={option}
+                            checked={props.data[props.name].includes(option)}
                             onChange={() => null}
                             onClick={(e) => {
                                 handleTwoCheckBoxes(e);
                             }}
                         />
-                        <span className="radioItemLabel">{option.value}</span>
+                        <span className="radioItemLabel">{option}</span>
                     </label>
                 );
             })}

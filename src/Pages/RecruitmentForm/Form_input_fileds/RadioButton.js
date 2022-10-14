@@ -3,15 +3,15 @@ import React from "react";
 function RadioButton(props) {
     return (
         <div className="radioSection">
-            {props.item.options.map((option) => {
+            {props.item.options.map((option, i) => {
                 return (
-                    <label key={option.id}>
+                    <label key={i}>
                         <input
                             className="radioItemInput"
                             type="radio"
                             name={props.name}
-                            value={option.value}
-                            checked={props.data[props.name] === option.value}
+                            value={option}
+                            checked={props.data[props.name] === option}
                             onChange={(e) => {
                                 props.onChange && props.onChange(e);
                                 props.setData({
@@ -20,7 +20,7 @@ function RadioButton(props) {
                                 });
                             }}
                         />
-                        <span className="radioItemLabel">{option.value}</span>
+                        <span className="radioItemLabel">{option}</span>
                     </label>
                 );
             })}

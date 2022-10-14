@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 
 function FormStep2() {
     let {
-        formItems,
+        inputsUiRendering,
         step,
         setStep,
         data,
@@ -18,9 +18,6 @@ function FormStep2() {
     useEffect(() => {
         changeHiddenFieldsData("eventNames");
     }, [conditionalFields.eventNames]);
-    useEffect(() => {
-        changeConditionalFieldsBoleanValue("eventNames");
-    }, [data]);
 
     let {
         register,
@@ -32,11 +29,15 @@ function FormStep2() {
         defaultValues: data,
     });
 
+    useEffect(() => {
+        changeConditionalFieldsBoleanValue("eventNames");
+    }, [data]);
+
     return (
         <form onSubmit={handleSubmit(() => setStep(step + 1))}>
             <div className="stepsIndication">Step {step} of 6</div>
             <h1 className="stepTitle">Knowledge about IEEE</h1>
-            {formItems(stepTwo, register, control, errors)}
+            {inputsUiRendering(stepTwo, register, control, errors)}
             <MainStepper handleSubmit={handleSubmit} isValid={isValid} />
         </form>
     );
