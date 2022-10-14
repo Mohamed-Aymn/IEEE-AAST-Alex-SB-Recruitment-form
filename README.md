@@ -1,29 +1,3 @@
-<!--
-needed:-
---------
-
-description
-    This is the name of the project. It describes the whole project in one sentence, and helps people understand what the main goal and aim of the project is.
-
-table of content
-
-explain brief/showcase and output
-    What your application does, (explain brief and its relation with the description)
-    Why you used the technologies you used, (how it is perfect for the brief)
-    Some of the challenges you faced and features you hope to implement in the future.
-How to Use the Project (a place to refrence for users) and I may take sc or use design principles to explain the useage for the end-user
-
-----------------------
-don't forget IEEEs logos
-----------------------
-
-should i type how to run it or to use these packages? this is in case if i need prople to run code and contribute with me as if this project is an open source project, I don't need this tip in my project case
-
-should i type refrences, no as I haven't used any external resources
-
-should i talk about my code and why i used it? yes I will type it in the second point
- -->
-
 # IEEE AAST Alex SB - Recruitment Form
 
 <p align="center">
@@ -107,7 +81,6 @@ used design pattern divides the project's code into three stages
 
 ```js
     {
-        id: 3,
         type: "text",
         fieldLabel: "Phone number",
         stateName: "phoneNumber",
@@ -141,7 +114,7 @@ export default InputField = (props) => {
 ```js
 if (item.type === "text") {
     return (
-        <div key={item.id} className="fieldContainer">
+        <div key={i} className="fieldContainer">
             <div className="fieldLabel">{item.fieldLabel}</div>
             <Controller
                 {...{
