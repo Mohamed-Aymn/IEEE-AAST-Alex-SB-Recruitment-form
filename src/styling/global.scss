@@ -68,6 +68,10 @@ footer {
 .recruitmentContainer {
     margin: 2em 0;
     max-width: 150ch;
+    .steps {
+        flex-basis: 90%;
+        flex-grow: 1;
+    }
     @include media(">xl") {
         margin: 0 auto;
     }
@@ -75,9 +79,6 @@ footer {
         display: flex;
         gap: 2em;
     }
-}
-.steps {
-    flex-grow: 1;
 }
 
 .formTitle {
@@ -197,6 +198,7 @@ label.optional::after {
 }
 .smallSpecialStepperDisapledButton {
     background-color: #363636;
+    cursor: not-allowed;
 }
 
 // ------------------------------------- big special stepper Styling
@@ -225,6 +227,7 @@ label.optional::after {
 }
 .bigSpecialStepperDisabledIconContainer {
     border: solid 0.1em #363636;
+    cursor: not-allowed;
 }
 .bigSpecialStepperButtonLabel {
     max-width: 10em;
@@ -358,6 +361,9 @@ label.optional::after {
     gap: 3em;
     @include media("<md") {
         display: block;
+    }
+    .column {
+        flex-basis: 50%;
     }
 }
 .column {
