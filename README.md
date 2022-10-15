@@ -77,7 +77,7 @@ The main aim is to type dynamic code to avoid code repetition due to the existen
 
 used design pattern divides the project's code into three stages
 
-1. The first stage is an array of object that carry data for various input fields that there state names have been already declared in form global state as in this example
+1. The first stage is an array of objects that carry data for various input fields that there state names have been already declared in form global state as in this example, this stage can be replaced by typing these data in the database in the backend part of this website for easy manipulation for future edits and to make the flow of frontend part in this project shorter and easier by only fetching these data.
 
 ```js
     {
