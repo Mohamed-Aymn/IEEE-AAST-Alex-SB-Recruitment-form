@@ -11,7 +11,7 @@ import ValidationErrorMessage from "../components/ValidationErrorMessage";
 const FormDataContext = createContext({});
 
 export const FormDataProvider = ({ children }) => {
-    let [step, setStep] = useState(6);
+    let [step, setStep] = useState(1);
     let [data, setData] = useState({
         // first step
         fullName: "",
