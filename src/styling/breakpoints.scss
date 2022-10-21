@@ -22,19 +22,19 @@ $breakpoints: (
 ///		)
 ///	);
 ///
-$media-expressions: (
-    "screen": "screen",
-    "print": "print",
-    "handheld": "handheld",
-    "retina2x": (
-        "(-webkit-min-device-pixel-ratio: 2)",
-        "(min-resolution: 192dpi)",
-    ),
-    "retina3x": (
-        "(-webkit-min-device-pixel-ratio: 3)",
-        "(min-resolution: 350dpi)",
-    ),
-) !default;
+// $media-expressions: (
+//     "screen": "screen",
+//     "print": "print",
+//     "handheld": "handheld",
+//     "retina2x": (
+//         "(-webkit-min-device-pixel-ratio: 2)",
+//         "(min-resolution: 192dpi)",
+//     ),
+//     "retina3x": (
+//         "(-webkit-min-device-pixel-ratio: 3)",
+//         "(min-resolution: 350dpi)",
+//     ),
+// ) !default;
 
 ///
 /// Defines a number to be added or subtracted from each unit when declaring breakpoints with exclusive intervals
@@ -329,9 +329,3 @@ $unit-intervals: (
 
     @return $number * nth($units, $index);
 }
-
-/**
-  *
-  * Testing
-  *
-  **/

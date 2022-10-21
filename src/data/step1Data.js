@@ -36,7 +36,7 @@ export let stepOnePartTwo = [
         type: "text",
         fieldLabel: "What is your total GPA?",
         stateName: "gpa",
-        pattern: /[0-4]/,
+        pattern: /^[0-3](\.[0-9]{1,2})?$|^4(\.[0]{1,2})?$/g,
         patternErrMsg: "GPA field should contain a numerical value from 0 to 4",
     },
     {

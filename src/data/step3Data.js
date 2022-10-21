@@ -18,9 +18,21 @@ export let stepThree = [
         ],
     },
     {
-        type: "LimitedCheckBox",
-        fieldLabel: "Choose your 2 secondary committees.",
-        stateName: "secondaryCommittee2",
+        type: "ConditionalRadioButton",
+        fieldLabel: "Choose your first secondary committees.",
+        stateName: "firstNonTechnicalSecondaryCommittee",
+        options: [
+            "Media",
+            "Marketing",
+            "Documentation",
+            "Registration",
+            "Operations",
+        ],
+    },
+    {
+        type: "ConditionalRadioButton",
+        fieldLabel: "Choose your second secondary committees.",
+        stateName: "secondNonTechnicalSecondaryCommittee",
         options: [
             "Media",
             "Marketing",

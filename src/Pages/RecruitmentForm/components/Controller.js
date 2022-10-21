@@ -1,23 +1,7 @@
-import { useFormState, useWatch } from "react-hook-form";
-
-function Controller({ control, register, name, rules, render }) {
-    const value = useWatch({
-        control,
-        name,
-    });
-    /*
-    this code block is used to console log errors of the inputs
-    
-    const { errors } = useFormState({
-        control,
-        name,
-    });
-    console.log(errors);
-    */
+function Controller({ register, name, rules, render }) {
     const props = register(name, rules);
 
     return render({
-        value,
         onChange: (e) =>
             props.onChange({
                 target: {
@@ -30,6 +14,7 @@ function Controller({ control, register, name, rules, render }) {
         item: props.item,
         data: props.data,
         setData: props.setData,
+        validate: props.validate,
     });
 }
 

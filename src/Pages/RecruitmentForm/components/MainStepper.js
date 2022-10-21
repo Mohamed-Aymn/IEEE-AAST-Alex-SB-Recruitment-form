@@ -1,24 +1,27 @@
 import React, { useContext } from "react";
 import FormDataContext from "../context/formContext";
 
-function MainStepper({ handleSubmit, isValid }) {
+function MainStepper({ handleSubmit }) {
     let { step, setStep, setSubmitPopup, setStepSwitchErrorPopup } =
         useContext(FormDataContext);
+
+    let onValid = () => {
+        setStep(step + 1);
+    };
+
+    let onError = () => {
+        setStepSwitchErrorPopup(true);
+    };
+
+    let onSubmit = () => {
+        setSubmitPopup(true);
+    };
 
     let nextButton = () => {
         return (
             <button
                 className="primaryButton"
-                onClick={
-                    isValid
-                        ? handleSubmit(() => {
-                              setStep(step + 1);
-                          })
-                        : (e) => {
-                              e.preventDefault();
-                              setStepSwitchErrorPopup(true);
-                          }
-                }
+                onClick={handleSubmit(onValid, onError)}
             >
                 Next Step
             </button>
@@ -39,17 +42,7 @@ function MainStepper({ handleSubmit, isValid }) {
     let submitButton = () => {
         return (
             <button
-                onClick={
-                    isValid
-                        ? (e) => {
-                              e.preventDefault();
-                              setSubmitPopup(true);
-                          }
-                        : (e) => {
-                              e.preventDefault();
-                              setStepSwitchErrorPopup(true);
-                          }
-                }
+                onClick={handleSubmit(onSubmit, onError)}
                 className="primaryButton"
             >
                 Submit

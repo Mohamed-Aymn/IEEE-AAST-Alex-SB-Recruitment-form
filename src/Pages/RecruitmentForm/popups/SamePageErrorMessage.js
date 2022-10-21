@@ -2,21 +2,21 @@ import React, { useContext, useEffect } from "react";
 import FormDataContext from "../context/formContext";
 import { BsExclamationTriangle } from "react-icons/bs";
 
-function SwitchErrorPopup() {
-    let { stepSwitchErrorPopup, setStepSwitchErrorPopup } =
+function SamePageErrorMessage() {
+    let { sameStepErrorMessage, setSameStepErrorMessage } =
         useContext(FormDataContext);
 
     useEffect(() => {
-        if (stepSwitchErrorPopup) {
+        if (sameStepErrorMessage) {
             setTimeout(() => {
-                setStepSwitchErrorPopup(false);
+                setSameStepErrorMessage(false);
             }, 5000);
         }
-    }, [stepSwitchErrorPopup]);
+    }, [sameStepErrorMessage]);
 
     return (
         <>
-            {stepSwitchErrorPopup && (
+            {sameStepErrorMessage && (
                 <div className="messageContainer">
                     <div className="message">
                         <div className="messageContent">
@@ -24,13 +24,12 @@ function SwitchErrorPopup() {
                                 className="messageIcon"
                                 fill="#3992ff"
                             />
-                            You can't switch to the next step until you finish
-                            filling the current step
+                            You are already in this step!
                         </div>
                         <div className="buttonConatiner">
                             <button
                                 className="primaryButton"
-                                onClick={() => setStepSwitchErrorPopup(false)}
+                                onClick={() => setSameStepErrorMessage(false)}
                             >
                                 ok
                             </button>
@@ -42,4 +41,4 @@ function SwitchErrorPopup() {
     );
 }
 
-export default SwitchErrorPopup;
+export default SamePageErrorMessage;

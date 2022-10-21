@@ -1,6 +1,6 @@
 import React from "react";
 
-function SmallSpecialStepper({ buttonsInfo, step }) {
+function SmallSpecialStepper({ buttonsInfo, step, clickHandler }) {
     return (
         <div className="smallSpecialStepperButtonsContainer">
             {buttonsInfo.map((button) => {
@@ -14,6 +14,7 @@ function SmallSpecialStepper({ buttonsInfo, step }) {
                                 : "smallSpecialStepperInactiveButton"
                         }`}
                         key={button.id}
+                        onClick={() => clickHandler(button.id)}
                     >
                         Step {button.id}
                     </button>

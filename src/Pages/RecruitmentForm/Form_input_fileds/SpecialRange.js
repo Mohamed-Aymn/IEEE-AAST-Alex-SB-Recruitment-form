@@ -1,29 +1,26 @@
 import React from "react";
 
 function SpecialRange(props) {
-    let numbers = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
-
     return (
         <div className="specialRangeContainer">
-            {numbers.map((number) => {
+            {props.item.options.map((option, i) => {
                 return (
-                    <label key={number} className="specialRangeItem">
+                    <label key={i} className="specialRangeItem">
                         <input
                             type="radio"
                             name={props.name}
                             className="specialRangeInput"
-                            checked={props.data[props.name] == number}
-                            value={number}
-                            onChange={() => null}
-                            onClick={(e) => {
+                            checked={props.data[props.name] == option}
+                            value={option}
+                            onChange={(e) => {
+                                props.onChange && props.onChange(e);
                                 props.setData({
                                     ...props.data,
                                     [props.name]: e.target.value,
                                 });
-                                props.onChange && props.onChange(e);
                             }}
                         />
-                        <span className="specialRangeLabel">{number}</span>
+                        <span className="specialRangeLabel">{option}</span>
                     </label>
                 );
             })}

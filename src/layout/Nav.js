@@ -7,7 +7,7 @@ function Nav() {
             <div className="navContent">
                 <img className="logo" src={img} alt="IEEE" />
                 <div className="navText">
-                    IEEE AAST Alex SB - Recruitment form demo
+                    IEEE AAST Alex SB <span>- Recruitment form demo</span>
                 </div>
             </div>
         </nav>

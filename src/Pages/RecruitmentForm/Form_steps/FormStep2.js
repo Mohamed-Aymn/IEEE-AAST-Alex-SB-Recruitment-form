@@ -5,22 +5,12 @@ import MainStepper from "../components/MainStepper";
 import { useForm } from "react-hook-form";
 
 function FormStep2() {
-    let {
-        inputsUiRendering,
-        step,
-        setStep,
-        data,
-        conditionalFields,
-        changeConditionalFieldsBoleanValue,
-        changeHiddenFieldsData,
-    } = useContext(FormDataContext);
-
-    useEffect(() => {
-        changeHiddenFieldsData("eventNames");
-    }, [conditionalFields.eventNames]);
+    let { inputsUiRendering, step, setStep, data, setData, conditionalFields } =
+        useContext(FormDataContext);
 
     let {
         register,
+        unregister,
         control,
         handleSubmit,
         formState: { errors, isValid },
@@ -30,8 +20,10 @@ function FormStep2() {
     });
 
     useEffect(() => {
-        changeConditionalFieldsBoleanValue("eventNames");
-    }, [data]);
+        if (!conditionalFields.eventNames) {
+            unregister("eventNames", { keepDirty: false });
+        }
+    }, [unregister, data.didAttendEvents]);
 
     return (
         <form onSubmit={handleSubmit(() => setStep(step + 1))}>

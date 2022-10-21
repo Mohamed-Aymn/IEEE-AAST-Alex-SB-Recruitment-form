@@ -1,12 +1,15 @@
 import React from "react";
 import StepIcon from "./StepIcon";
 
-function BigSpecialStepper({ buttonsInfo, step }) {
+function BigSpecialStepper({ buttonsInfo, step, clickHandler }) {
     return (
-        <div className="bigSpecialStepperContainer">
+        <div>
             {buttonsInfo.map((button) => {
                 return (
-                    <div key={button.id}>
+                    <div
+                        onClick={() => clickHandler(button.id)}
+                        key={button.id}
+                    >
                         <StepIcon
                             key={button.id}
                             title={button.name}

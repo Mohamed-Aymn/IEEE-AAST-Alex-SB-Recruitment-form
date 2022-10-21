@@ -3,7 +3,6 @@ export let stepFive = [
         type: "text",
         fieldLabel: "How many hours can you commit to IEEE per week?",
         stateName: "commitmentHours",
-        pattern: /[a-z]/i,
         patternErrMsg: "write a valid input",
     },
     {

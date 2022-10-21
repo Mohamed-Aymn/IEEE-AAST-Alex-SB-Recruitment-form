@@ -2,21 +2,21 @@ import React, { useContext, useEffect } from "react";
 import FormDataContext from "../context/formContext";
 import { BsExclamationTriangle } from "react-icons/bs";
 
-function SwitchErrorPopup() {
-    let { stepSwitchErrorPopup, setStepSwitchErrorPopup } =
+function SpecialStepperErrorMessage() {
+    let { specialStepperErrorMessage, setSpecialStepperErrorMessage } =
         useContext(FormDataContext);
 
     useEffect(() => {
-        if (stepSwitchErrorPopup) {
+        if (specialStepperErrorMessage) {
             setTimeout(() => {
-                setStepSwitchErrorPopup(false);
+                setSpecialStepperErrorMessage(false);
             }, 5000);
         }
-    }, [stepSwitchErrorPopup]);
+    }, [specialStepperErrorMessage]);
 
     return (
         <>
-            {stepSwitchErrorPopup && (
+            {specialStepperErrorMessage && (
                 <div className="messageContainer">
                     <div className="message">
                         <div className="messageContent">
@@ -24,13 +24,15 @@ function SwitchErrorPopup() {
                                 className="messageIcon"
                                 fill="#3992ff"
                             />
-                            You can't switch to the next step until you finish
-                            filling the current step
+                            please navigate between steps by next/back
+                            naviagtion buttons at the bottom of the page
                         </div>
                         <div className="buttonConatiner">
                             <button
                                 className="primaryButton"
-                                onClick={() => setStepSwitchErrorPopup(false)}
+                                onClick={() =>
+                                    setSpecialStepperErrorMessage(false)
+                                }
                             >
                                 ok
                             </button>
@@ -42,4 +44,4 @@ function SwitchErrorPopup() {
     );
 }
 
-export default SwitchErrorPopup;
+export default SpecialStepperErrorMessage;

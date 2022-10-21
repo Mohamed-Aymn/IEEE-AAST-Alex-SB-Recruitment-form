@@ -13,14 +13,13 @@ function FormStep4() {
         handleSubmit,
         formState: { errors, isValid },
     } = useForm({
-        mode: "onBlur",
+        mode: "onChange",
         defaultValues: data,
     });
 
     return (
         <form onSubmit={handleSubmit(() => setStep(step + 1))}>
             <div className="stepsIndication">Step {step} of 6</div>
-
             <h1 className="stepTitle">Experience in each committee</h1>
             {inputsUiRendering(stepFour, register, control, errors)}
             <MainStepper handleSubmit={handleSubmit} isValid={isValid} />

@@ -2,12 +2,11 @@ import React, { useContext } from "react";
 import FormDataContext from "../context/formContext";
 
 function SubmitPopup({ handleSubmit }) {
-    let { submitPopup, setSubmitPopup } = useContext(FormDataContext);
-
-    // console.log(handleSubmit);
+    let { submitPopup, setSubmitPopup, setFinishPopup } =
+        useContext(FormDataContext);
 
     return (
-        <div>
+        <>
             {submitPopup && (
                 <div className="popupContainer">
                     <div className="popup">
@@ -27,8 +26,9 @@ function SubmitPopup({ handleSubmit }) {
                             <button
                                 className="primaryButton"
                                 onClick={handleSubmit((data) => {
-                                    console.log(data);
                                     setSubmitPopup(false);
+                                    console.log(data);
+                                    setFinishPopup(true);
                                 })}
                             >
                                 Submit
@@ -37,7 +37,7 @@ function SubmitPopup({ handleSubmit }) {
                     </div>
                 </div>
             )}
-        </div>
+        </>
     );
 }
 
