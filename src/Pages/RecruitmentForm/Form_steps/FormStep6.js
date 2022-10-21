@@ -23,7 +23,6 @@ function FormStep6() {
     useEffect(() => {
         if (!conditionalFields.friendName) {
             unregister("friendName", { keepDirty: false });
-            setData({ data, friendName: "" });
         } else if (!conditionalFields.volunteersName) {
             unregister("volunteersName", { keepDirty: false });
         } else if (!conditionalFields.other) {
