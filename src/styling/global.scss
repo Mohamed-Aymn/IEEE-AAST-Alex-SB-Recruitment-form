@@ -145,6 +145,7 @@ label.optional::after {
     background-color: transparent;
     box-sizing: border-box;
     padding: 0.3em 0.4em;
+    resize: vertical;
 }
 .inputField:focus,
 .inputField:hover {
@@ -383,16 +384,16 @@ label.optional::after {
     display: flex;
     flex-direction: row;
     gap: 3em;
-    @include media("<=md") {
+    @include media("<=lg") {
         display: block;
     }
     .column {
-        @include media(">md") {
-            min-width: 5em;
-        }
+        min-width: 5em;
         flex-grow: 1;
-        flex-shrink: 1;
         flex-basis: 50%;
+        @include media(">md") {
+            flex-shrink: 1;
+        }
     }
 }
 //--------------------------------- popup
